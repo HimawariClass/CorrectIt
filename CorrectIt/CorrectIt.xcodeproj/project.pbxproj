@@ -12,9 +12,14 @@
 		C98FE1E420807CC7001C8D32 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C98FE1E220807CC7001C8D32 /* Main.storyboard */; };
 		C98FE1E620807CC8001C8D32 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C98FE1E520807CC8001C8D32 /* Assets.xcassets */; };
 		C98FE1E920807CC8001C8D32 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C98FE1E720807CC8001C8D32 /* LaunchScreen.storyboard */; };
+		C997E1ED2089AD7D00E4AC67 /* OpenCVManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = C997E1EC2089AD7D00E4AC67 /* OpenCVManager.mm */; };
+		C997E2022089C26A00E4AC67 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C997E2012089C26A00E4AC67 /* opencv2.framework */; };
+		D9A63905DEFCF4D0EF53C34A /* Pods_CorrectIt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F1063B9C226DF41708247E4 /* Pods_CorrectIt.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5E2E3FD7DD219890E4FD755A /* Pods-CorrectIt.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CorrectIt.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CorrectIt/Pods-CorrectIt.debug.xcconfig"; sourceTree = "<group>"; };
+		9F1063B9C226DF41708247E4 /* Pods_CorrectIt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CorrectIt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C98FE1DB20807CC7001C8D32 /* CorrectIt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CorrectIt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C98FE1DE20807CC7001C8D32 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C98FE1E020807CC7001C8D32 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +27,14 @@
 		C98FE1E520807CC8001C8D32 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C98FE1E820807CC8001C8D32 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C98FE1EA20807CC8001C8D32 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C997E1EC2089AD7D00E4AC67 /* OpenCVManager.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = OpenCVManager.mm; sourceTree = "<group>"; };
+		C997E1EF2089ADCF00E4AC67 /* CorrectIt-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CorrectIt-Bridging-Header.h"; sourceTree = "<group>"; };
+		C997E1F02089AE1100E4AC67 /* OpenCVManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OpenCVManager.h; sourceTree = "<group>"; };
+		C997E1F92089B9A900E4AC67 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		C997E1FB2089B9B200E4AC67 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		C997E1FD2089B9BB00E4AC67 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		C997E2012089C26A00E4AC67 /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
+		FD40AB7E7927A71BB6C47B7C /* Pods-CorrectIt.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CorrectIt.release.xcconfig"; path = "Pods/Target Support Files/Pods-CorrectIt/Pods-CorrectIt.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +42,41 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C997E2022089C26A00E4AC67 /* opencv2.framework in Frameworks */,
+				D9A63905DEFCF4D0EF53C34A /* Pods_CorrectIt.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9C29707A98E7324DAC7B5033 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5E2E3FD7DD219890E4FD755A /* Pods-CorrectIt.debug.xcconfig */,
+				FD40AB7E7927A71BB6C47B7C /* Pods-CorrectIt.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		9E5E2759CED081DD2A7ED923 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C997E1FD2089B9BB00E4AC67 /* AssetsLibrary.framework */,
+				C997E1FB2089B9B200E4AC67 /* CoreMedia.framework */,
+				C997E1F92089B9A900E4AC67 /* AVFoundation.framework */,
+				9F1063B9C226DF41708247E4 /* Pods_CorrectIt.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		C98FE1D220807CC6001C8D32 = {
 			isa = PBXGroup;
 			children = (
 				C98FE1DD20807CC7001C8D32 /* CorrectIt */,
 				C98FE1DC20807CC7001C8D32 /* Products */,
+				9C29707A98E7324DAC7B5033 /* Pods */,
+				9E5E2759CED081DD2A7ED923 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -55,6 +92,10 @@
 			isa = PBXGroup;
 			children = (
 				C98FE1DE20807CC7001C8D32 /* AppDelegate.swift */,
+				C997E2012089C26A00E4AC67 /* opencv2.framework */,
+				C997E1EC2089AD7D00E4AC67 /* OpenCVManager.mm */,
+				C997E1F02089AE1100E4AC67 /* OpenCVManager.h */,
+				C997E1EF2089ADCF00E4AC67 /* CorrectIt-Bridging-Header.h */,
 				C98FE1E020807CC7001C8D32 /* ViewController.swift */,
 				C98FE1E220807CC7001C8D32 /* Main.storyboard */,
 				C98FE1E520807CC8001C8D32 /* Assets.xcassets */,
@@ -71,9 +112,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C98FE1ED20807CC8001C8D32 /* Build configuration list for PBXNativeTarget "CorrectIt" */;
 			buildPhases = (
+				EABA5EC5786E22D19F433A1F /* [CP] Check Pods Manifest.lock */,
 				C98FE1D720807CC7001C8D32 /* Sources */,
 				C98FE1D820807CC7001C8D32 /* Frameworks */,
 				C98FE1D920807CC7001C8D32 /* Resources */,
+				4446AB8B83F71456ADD4D761 /* [CP] Embed Pods Frameworks */,
+				CD0EA83E730AAE2810968F44 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -96,6 +140,7 @@
 				TargetAttributes = {
 					C98FE1DA20807CC7001C8D32 = {
 						CreatedOnToolsVersion = 9.3;
+						LastSwiftMigration = 0930;
 					};
 				};
 			};
@@ -130,6 +175,64 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		4446AB8B83F71456ADD4D761 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-CorrectIt/Pods-CorrectIt-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CorrectIt/Pods-CorrectIt-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CD0EA83E730AAE2810968F44 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CorrectIt/Pods-CorrectIt-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EABA5EC5786E22D19F433A1F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CorrectIt-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		C98FE1D720807CC7001C8D32 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -137,6 +240,7 @@
 			files = (
 				C98FE1E120807CC7001C8D32 /* ViewController.swift in Sources */,
 				C98FE1DF20807CC7001C8D32 /* AppDelegate.swift in Sources */,
+				C997E1ED2089AD7D00E4AC67 /* OpenCVManager.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -278,35 +382,55 @@
 		};
 		C98FE1EE20807CC8001C8D32 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5E2E3FD7DD219890E4FD755A /* Pods-CorrectIt.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YS65CTH2V7;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/CorrectIt",
+				);
 				INFOPLIST_FILE = CorrectIt/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = net.grapebread.CorrectIt;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "CorrectIt/CorrectIt-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 2;
+				VALID_ARCHS = "arm64 armv7 armv7s";
 			};
 			name = Debug;
 		};
 		C98FE1EF20807CC8001C8D32 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FD40AB7E7927A71BB6C47B7C /* Pods-CorrectIt.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YS65CTH2V7;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/CorrectIt",
+				);
 				INFOPLIST_FILE = CorrectIt/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = net.grapebread.CorrectIt;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "CorrectIt/CorrectIt-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 2;
 			};
