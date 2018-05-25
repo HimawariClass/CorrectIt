@@ -5,6 +5,9 @@ iOS Application for correct answer papers.
 - OpenCV
 - ...
 
+# Setup
+do `sh setup.sh`
+
 # Developers
 
 We are "Himawari-Class" and "ひまわり組" in Japanese🌻.
