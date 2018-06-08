@@ -82,3 +82,7 @@ Podfile.lock
 
 #Framework
 opencv2.framework
+
+#ZIP
+*.zip
+*.ZIP
