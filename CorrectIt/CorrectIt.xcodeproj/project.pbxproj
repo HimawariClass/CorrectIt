@@ -8,8 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C98FE1DF20807CC7001C8D32 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C98FE1DE20807CC7001C8D32 /* AppDelegate.swift */; };
-		C98FE1E120807CC7001C8D32 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C98FE1E020807CC7001C8D32 /* ViewController.swift */; };
-		C98FE1E420807CC7001C8D32 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C98FE1E220807CC7001C8D32 /* Main.storyboard */; };
+		C98FE1E120807CC7001C8D32 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C98FE1E020807CC7001C8D32 /* MainViewController.swift */; };
 		C98FE1E620807CC8001C8D32 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C98FE1E520807CC8001C8D32 /* Assets.xcassets */; };
 		C98FE1E920807CC8001C8D32 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C98FE1E720807CC8001C8D32 /* LaunchScreen.storyboard */; };
 		C997E1ED2089AD7D00E4AC67 /* OpenCVManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = C997E1EC2089AD7D00E4AC67 /* OpenCVManager.mm */; };
@@ -22,8 +21,7 @@
 		9F1063B9C226DF41708247E4 /* Pods_CorrectIt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CorrectIt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C98FE1DB20807CC7001C8D32 /* CorrectIt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CorrectIt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C98FE1DE20807CC7001C8D32 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C98FE1E020807CC7001C8D32 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		C98FE1E320807CC7001C8D32 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C98FE1E020807CC7001C8D32 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		C98FE1E520807CC8001C8D32 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C98FE1E820807CC8001C8D32 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C98FE1EA20807CC8001C8D32 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -96,8 +94,7 @@
 				C997E1EC2089AD7D00E4AC67 /* OpenCVManager.mm */,
 				C997E1F02089AE1100E4AC67 /* OpenCVManager.h */,
 				C997E1EF2089ADCF00E4AC67 /* CorrectIt-Bridging-Header.h */,
-				C98FE1E020807CC7001C8D32 /* ViewController.swift */,
-				C98FE1E220807CC7001C8D32 /* Main.storyboard */,
+				C98FE1E020807CC7001C8D32 /* MainViewController.swift */,
 				C98FE1E520807CC8001C8D32 /* Assets.xcassets */,
 				C98FE1E720807CC8001C8D32 /* LaunchScreen.storyboard */,
 				C98FE1EA20807CC8001C8D32 /* Info.plist */,
@@ -117,7 +114,6 @@
 				C98FE1D820807CC7001C8D32 /* Frameworks */,
 				C98FE1D920807CC7001C8D32 /* Resources */,
 				4446AB8B83F71456ADD4D761 /* [CP] Embed Pods Frameworks */,
-				CD0EA83E730AAE2810968F44 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -169,7 +165,6 @@
 			files = (
 				C98FE1E920807CC8001C8D32 /* LaunchScreen.storyboard in Resources */,
 				C98FE1E620807CC8001C8D32 /* Assets.xcassets in Resources */,
-				C98FE1E420807CC7001C8D32 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -198,21 +193,6 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CorrectIt/Pods-CorrectIt-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		CD0EA83E730AAE2810968F44 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CorrectIt/Pods-CorrectIt-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		EABA5EC5786E22D19F433A1F /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -238,7 +218,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C98FE1E120807CC7001C8D32 /* ViewController.swift in Sources */,
+				C98FE1E120807CC7001C8D32 /* MainViewController.swift in Sources */,
 				C98FE1DF20807CC7001C8D32 /* AppDelegate.swift in Sources */,
 				C997E1ED2089AD7D00E4AC67 /* OpenCVManager.mm in Sources */,
 			);
@@ -247,14 +227,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		C98FE1E220807CC7001C8D32 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				C98FE1E320807CC7001C8D32 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		C98FE1E720807CC8001C8D32 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
