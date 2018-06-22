@@ -8,12 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		C9166E3A20D4B5DC009D54BC /* SutudentObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9166E3920D4B5DC009D54BC /* SutudentObject.swift */; };
+		C9166E3C20DCB8B4009D54BC /* ios_conversions.mm in Sources */ = {isa = PBXBuildFile; fileRef = C9166E3B20DCB8B4009D54BC /* ios_conversions.mm */; };
 		C98FE1DF20807CC7001C8D32 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C98FE1DE20807CC7001C8D32 /* AppDelegate.swift */; };
 		C98FE1E120807CC7001C8D32 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C98FE1E020807CC7001C8D32 /* MainViewController.swift */; };
 		C98FE1E620807CC8001C8D32 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C98FE1E520807CC8001C8D32 /* Assets.xcassets */; };
 		C98FE1E920807CC8001C8D32 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C98FE1E720807CC8001C8D32 /* LaunchScreen.storyboard */; };
 		C997E1ED2089AD7D00E4AC67 /* OpenCVManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = C997E1EC2089AD7D00E4AC67 /* OpenCVManager.mm */; };
-		C997E2022089C26A00E4AC67 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C997E2012089C26A00E4AC67 /* opencv2.framework */; };
 		D9A63905DEFCF4D0EF53C34A /* Pods_CorrectIt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F1063B9C226DF41708247E4 /* Pods_CorrectIt.framework */; };
 /* End PBXBuildFile section */
 
@@ -21,6 +21,7 @@
 		5E2E3FD7DD219890E4FD755A /* Pods-CorrectIt.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CorrectIt.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CorrectIt/Pods-CorrectIt.debug.xcconfig"; sourceTree = "<group>"; };
 		9F1063B9C226DF41708247E4 /* Pods_CorrectIt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CorrectIt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9166E3920D4B5DC009D54BC /* SutudentObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SutudentObject.swift; sourceTree = "<group>"; };
+		C9166E3B20DCB8B4009D54BC /* ios_conversions.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ios_conversions.mm; sourceTree = "<group>"; };
 		C98FE1DB20807CC7001C8D32 /* CorrectIt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CorrectIt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C98FE1DE20807CC7001C8D32 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C98FE1E020807CC7001C8D32 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -33,7 +34,6 @@
 		C997E1F92089B9A900E4AC67 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		C997E1FB2089B9B200E4AC67 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		C997E1FD2089B9BB00E4AC67 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
-		C997E2012089C26A00E4AC67 /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
 		FD40AB7E7927A71BB6C47B7C /* Pods-CorrectIt.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CorrectIt.release.xcconfig"; path = "Pods/Target Support Files/Pods-CorrectIt/Pods-CorrectIt.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -42,7 +42,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C997E2022089C26A00E4AC67 /* opencv2.framework in Frameworks */,
 				D9A63905DEFCF4D0EF53C34A /* Pods_CorrectIt.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -73,8 +72,8 @@
 		C9166E3820D38531009D54BC /* OpenCV */ = {
 			isa = PBXGroup;
 			children = (
-				C997E2012089C26A00E4AC67 /* opencv2.framework */,
 				C997E1EC2089AD7D00E4AC67 /* OpenCVManager.mm */,
+				C9166E3B20DCB8B4009D54BC /* ios_conversions.mm */,
 				C997E1F02089AE1100E4AC67 /* OpenCVManager.h */,
 				C997E1EF2089ADCF00E4AC67 /* CorrectIt-Bridging-Header.h */,
 			);
@@ -189,6 +188,7 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-CorrectIt/Pods-CorrectIt-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/OpenCV/opencv2.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
@@ -197,6 +197,7 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/opencv2.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
@@ -235,6 +236,7 @@
 			files = (
 				C98FE1E120807CC7001C8D32 /* MainViewController.swift in Sources */,
 				C98FE1DF20807CC7001C8D32 /* AppDelegate.swift in Sources */,
+				C9166E3C20DCB8B4009D54BC /* ios_conversions.mm in Sources */,
 				C9166E3A20D4B5DC009D54BC /* SutudentObject.swift in Sources */,
 				C997E1ED2089AD7D00E4AC67 /* OpenCVManager.mm in Sources */,
 			);
@@ -381,7 +383,7 @@
 					"$(PROJECT_DIR)/CorrectIt",
 				);
 				INFOPLIST_FILE = CorrectIt/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -410,7 +412,7 @@
 					"$(PROJECT_DIR)/CorrectIt",
 				);
 				INFOPLIST_FILE = CorrectIt/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
