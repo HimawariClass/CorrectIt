@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C9166E3A20D4B5DC009D54BC /* SutudentObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9166E3920D4B5DC009D54BC /* SutudentObject.swift */; };
+		C9166E3A20D4B5DC009D54BC /* StudentObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9166E3920D4B5DC009D54BC /* StudentObject.swift */; };
 		C9166E3C20DCB8B4009D54BC /* ios_conversions.mm in Sources */ = {isa = PBXBuildFile; fileRef = C9166E3B20DCB8B4009D54BC /* ios_conversions.mm */; };
 		C98FE1DF20807CC7001C8D32 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C98FE1DE20807CC7001C8D32 /* AppDelegate.swift */; };
 		C98FE1E120807CC7001C8D32 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C98FE1E020807CC7001C8D32 /* MainViewController.swift */; };
@@ -20,7 +20,7 @@
 /* Begin PBXFileReference section */
 		5E2E3FD7DD219890E4FD755A /* Pods-CorrectIt.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CorrectIt.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CorrectIt/Pods-CorrectIt.debug.xcconfig"; sourceTree = "<group>"; };
 		9F1063B9C226DF41708247E4 /* Pods_CorrectIt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CorrectIt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C9166E3920D4B5DC009D54BC /* SutudentObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SutudentObject.swift; sourceTree = "<group>"; };
+		C9166E3920D4B5DC009D54BC /* StudentObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentObject.swift; sourceTree = "<group>"; };
 		C9166E3B20DCB8B4009D54BC /* ios_conversions.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ios_conversions.mm; sourceTree = "<group>"; };
 		C98FE1DB20807CC7001C8D32 /* CorrectIt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CorrectIt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C98FE1DE20807CC7001C8D32 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -104,7 +104,7 @@
 				C98FE1DE20807CC7001C8D32 /* AppDelegate.swift */,
 				C9166E3820D38531009D54BC /* OpenCV */,
 				C98FE1E020807CC7001C8D32 /* MainViewController.swift */,
-				C9166E3920D4B5DC009D54BC /* SutudentObject.swift */,
+				C9166E3920D4B5DC009D54BC /* StudentObject.swift */,
 				C98FE1E520807CC8001C8D32 /* Assets.xcassets */,
 				C98FE1E720807CC8001C8D32 /* LaunchScreen.storyboard */,
 				C98FE1EA20807CC8001C8D32 /* Info.plist */,
@@ -237,7 +237,7 @@
 				C98FE1E120807CC7001C8D32 /* MainViewController.swift in Sources */,
 				C98FE1DF20807CC7001C8D32 /* AppDelegate.swift in Sources */,
 				C9166E3C20DCB8B4009D54BC /* ios_conversions.mm in Sources */,
-				C9166E3A20D4B5DC009D54BC /* SutudentObject.swift in Sources */,
+				C9166E3A20D4B5DC009D54BC /* StudentObject.swift in Sources */,
 				C997E1ED2089AD7D00E4AC67 /* OpenCVManager.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
