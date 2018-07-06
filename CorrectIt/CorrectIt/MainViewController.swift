@@ -16,6 +16,28 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         self.title = "CorrectIt"
         self.view.backgroundColor = UIColor.white
+        
+        let documentPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
+        print(documentPath)
+        var fileNames: [String] {
+            do {
+                return try FileManager.default.contentsOfDirectory(atPath: documentPath)
+            } catch {
+                return []
+            }
+        }
+        
+        print(fileNames)
+        
+        var fileNames2: [String] {
+            do {
+                return try FileManager.default.contentsOfDirectory(atPath: documentPath+"/Diary")
+            } catch {
+                return []
+            }
+        }
+        
+        print(fileNames2)
     }
 
     override func didReceiveMemoryWarning() {
