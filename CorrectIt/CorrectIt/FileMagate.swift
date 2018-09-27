@@ -7,3 +7,23 @@
 //
 
 import Foundation
+
+struct FileManage {
+    let basePath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
+    
+    func getFiles(path: String) -> [String] {
+        do {
+            return try FileManager.default.contentsOfDirectory(atPath: path)
+        } catch {
+            return []
+        }
+    }
+    
+    func getFolders(path: String) -> [String] {
+        do {
+            return try FileManager.default.contentsOfDirectory(atPath: path).filter { $0.range(of: ".") == nil }
+        } catch {
+            return []
+        }
+    }
+}
