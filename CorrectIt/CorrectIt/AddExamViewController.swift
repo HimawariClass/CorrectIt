@@ -71,9 +71,10 @@ class AddExamViewController: UIViewController {
         exam.date = Date()
         exam.subject = titleField.text!
         exam.desc = descField.text!
-        
-        try! realm.write() {
-            realm.add(exam)
+        if exam.subject != "" && exam.desc != "" {
+            try! realm.write() {
+                realm.add(exam)
+            }
         }
         dismiss(animated: true, completion: nil)
     }

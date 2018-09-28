@@ -77,7 +77,7 @@ extension MainViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         
-        cell.textLabel?.text = data[indexPath.row].subject
+        cell.textLabel?.text = data[indexPath.row].subject + " : " + data[indexPath.row].desc
         cell.accessoryType = .disclosureIndicator
         //cell.accessoryView = UISwitch()
         
