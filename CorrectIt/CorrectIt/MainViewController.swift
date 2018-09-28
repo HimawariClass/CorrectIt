@@ -15,12 +15,18 @@ class MainViewController: UIViewController {
     var tableView = UITableView()
     let realm = try! Realm()
     var data: Results<Exam>!
+    var notificationToken: NotificationToken?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "CorrectIt"
         self.view.backgroundColor = UIColor.lightGray
         data = realm.objects(Exam.self)
+        notificationToken = realm.observe { [unowned self] note, realm in
+            self.data = realm.objects(Exam.self)
+            self.tableView.reloadData()
+            print("a")
+        }
         setUI()
         print(data.count)
     }
@@ -32,6 +38,16 @@ class MainViewController: UIViewController {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
         tableView.tableFooterView = UIView(frame: .zero)
         view.addSubview(tableView)
+        
+        let addButton: UIBarButtonItem = UIBarButtonItem(title: "新規作成", style: UIBarButtonItem.Style.plain, target: self, action: #selector(MainViewController.tapAddButton))
+        self.navigationItem.rightBarButtonItem = addButton
+
+    }
+    
+    @objc func tapAddButton() {
+        let controller = AddExamViewController()
+        controller.modalPresentationStyle = .overCurrentContext
+        present(controller, animated: true, completion: nil)
     }
     
     override func didReceiveMemoryWarning() {
@@ -61,7 +77,7 @@ extension MainViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         
-        cell.textLabel?.text = "a"
+        cell.textLabel?.text = data[indexPath.row].subject
         cell.accessoryType = .disclosureIndicator
         //cell.accessoryView = UISwitch()
         

@@ -15,6 +15,8 @@
 		C98FE1E920807CC8001C8D32 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C98FE1E720807CC8001C8D32 /* LaunchScreen.storyboard */; };
 		C9929B1020F870A200503D73 /* FileMagate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9929B0F20F870A200503D73 /* FileMagate.swift */; };
 		C997E1ED2089AD7D00E4AC67 /* OpenCVManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = C997E1EC2089AD7D00E4AC67 /* OpenCVManager.mm */; };
+		C999970E215CC692002271C0 /* AddExamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C999970D215CC692002271C0 /* AddExamViewController.swift */; };
+		C9999711215CDCAD002271C0 /* UItextField+Underline.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9999710215CDCAD002271C0 /* UItextField+Underline.swift */; };
 		D9A63905DEFCF4D0EF53C34A /* Pods_CorrectIt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F1063B9C226DF41708247E4 /* Pods_CorrectIt.framework */; };
 /* End PBXBuildFile section */
 
@@ -36,6 +38,8 @@
 		C997E1F92089B9A900E4AC67 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		C997E1FB2089B9B200E4AC67 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		C997E1FD2089B9BB00E4AC67 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		C999970D215CC692002271C0 /* AddExamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExamViewController.swift; sourceTree = "<group>"; };
+		C9999710215CDCAD002271C0 /* UItextField+Underline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UItextField+Underline.swift"; sourceTree = "<group>"; };
 		FD40AB7E7927A71BB6C47B7C /* Pods-CorrectIt.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CorrectIt.release.xcconfig"; path = "Pods/Target Support Files/Pods-CorrectIt/Pods-CorrectIt.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -103,9 +107,11 @@
 		C98FE1DD20807CC7001C8D32 /* CorrectIt */ = {
 			isa = PBXGroup;
 			children = (
+				C999970F215CDC7B002271C0 /* Extentions */,
 				C98FE1DE20807CC7001C8D32 /* AppDelegate.swift */,
 				C9166E3820D38531009D54BC /* OpenCV */,
 				C98FE1E020807CC7001C8D32 /* MainViewController.swift */,
+				C999970D215CC692002271C0 /* AddExamViewController.swift */,
 				C9929B0F20F870A200503D73 /* FileMagate.swift */,
 				C9166E3920D4B5DC009D54BC /* RealmObject.swift */,
 				C98FE1E520807CC8001C8D32 /* Assets.xcassets */,
@@ -113,6 +119,14 @@
 				C98FE1EA20807CC8001C8D32 /* Info.plist */,
 			);
 			path = CorrectIt;
+			sourceTree = "<group>";
+		};
+		C999970F215CDC7B002271C0 /* Extentions */ = {
+			isa = PBXGroup;
+			children = (
+				C9999710215CDCAD002271C0 /* UItextField+Underline.swift */,
+			);
+			path = Extentions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -237,9 +251,11 @@
 			files = (
 				C98FE1E120807CC7001C8D32 /* MainViewController.swift in Sources */,
 				C98FE1DF20807CC7001C8D32 /* AppDelegate.swift in Sources */,
+				C999970E215CC692002271C0 /* AddExamViewController.swift in Sources */,
 				C9166E3C20DCB8B4009D54BC /* ios_conversions.mm in Sources */,
 				C9166E3A20D4B5DC009D54BC /* RealmObject.swift in Sources */,
 				C9929B1020F870A200503D73 /* FileMagate.swift in Sources */,
+				C9999711215CDCAD002271C0 /* UItextField+Underline.swift in Sources */,
 				C997E1ED2089AD7D00E4AC67 /* OpenCVManager.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

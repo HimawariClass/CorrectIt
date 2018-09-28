@@ -10,7 +10,7 @@ import RealmSwift
 
 class Exam: Object {
     @objc dynamic var id = UUID().uuidString
-    @objc dynamic var date = ""
+    @objc dynamic var date = Date()
     @objc dynamic var subject = ""
     @objc dynamic var desc = ""
 }
