@@ -75,8 +75,15 @@ class AddExamViewController: UIViewController {
             try! realm.write() {
                 realm.add(exam)
             }
+            dismiss(animated: true, completion: nil)
+        } else {
+            let alert = UIAlertController(
+                title: "入力不足",
+                message: "入力していない項目があります",
+                preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default))
+            self.present(alert, animated: true, completion: nil)
         }
-        dismiss(animated: true, completion: nil)
     }
     
     @objc func keyboardWillShow(_ notification: Notification) {
