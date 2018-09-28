@@ -21,9 +21,9 @@ class ExamViewController: UIViewController {
         super.viewDidLoad()
         self.title = exam.subject + "の回答"
         self.view.backgroundColor = UIColor.lightGray
-        data = realm.objects(Paper.self).filter("examId == " + exam.id)
+        data = realm.objects(Paper.self).filter("examId = %@", exam.id)
         notificationToken = realm.observe { [unowned self] note, realm in
-            self.data = realm.objects(Paper.self).filter("examId == " + self.exam.id)
+            self.data = realm.objects(Paper.self).filter("examId = %@", self.exam.id)
             self.tableView.reloadData()                                                                                                                                                                                                                                  
         }
         setUI()
