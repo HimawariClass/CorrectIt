@@ -24,7 +24,7 @@ class ExamViewController: UIViewController {
         data = realm.objects(Paper.self).filter("examId = %@", exam.id)
         notificationToken = realm.observe { [unowned self] note, realm in
             self.data = realm.objects(Paper.self).filter("examId = %@", self.exam.id)
-            self.tableView.reloadData()                                                                                                                                                                                                                                  
+            self.tableView.reloadData()
         }
         setUI()
         print(data.count)
@@ -44,9 +44,9 @@ class ExamViewController: UIViewController {
     }
     
     @objc func tapAddButton() {
-        //let controller = AddExamViewController()
-        //controller.modalPresentationStyle = .overCurrentContext
-        //present(controller, animated: true, completion: nil)
+        let controller = AddPaperViewController()
+        controller.modalPresentationStyle = .overCurrentContext
+        present(controller, animated: true, completion: nil)
     }
     
     override func didReceiveMemoryWarning() {
