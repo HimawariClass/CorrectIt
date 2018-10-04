@@ -34,3 +34,10 @@ class Coordinate: Object {
     @objc dynamic var x = 0
     @objc dynamic var y = 0
 }
+
+class ColorPalette: Object {
+    @objc dynamic var examId = ""
+    @objc dynamic var id = 0
+    @objc dynamic var color = ""
+    @objc dynamic var name = ""
+}
