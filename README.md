@@ -6,7 +6,11 @@ iOS Application for correct answer papers.
 - ...
 
 # Setup
-do `sh setup.sh`
+`cd CorrectIt`  
+`pod install`
+
+# image processing
+`CorrectIt/OpenCV/OpenCVManager.mm`
 
 # Developers
 
