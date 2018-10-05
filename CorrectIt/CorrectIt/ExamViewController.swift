@@ -45,6 +45,7 @@ class ExamViewController: UIViewController {
     
     @objc func tapAddButton() {
         let controller = AddPaperViewController()
+        controller.examId = exam.id
         controller.modalPresentationStyle = .overCurrentContext
         present(controller, animated: true, completion: nil)
     }
@@ -91,7 +92,8 @@ extension ExamViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(indexPath.row)
-        navigationController?.pushViewController(UIViewController(), animated: true)
+        let controller = PaperViewController()
+        controller.paper = data[indexPath.row]
+        navigationController?.pushViewController(controller, animated: true)
     }
 }

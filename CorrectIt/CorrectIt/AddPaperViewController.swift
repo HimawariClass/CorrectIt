@@ -15,6 +15,8 @@ class AddPaperViewController: UIViewController {
     var data = [String]()
     var baseView = UIView()
     var tableView = UITableView()
+    var selectedData = [String]()
+    let documentPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,12 +31,10 @@ class AddPaperViewController: UIViewController {
                              name: UIWindow.keyboardWillHideNotification,
                              object: nil)
         
-        let documentPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
         let realm = try! Realm()
-        if realm.objects(Exam.self).filter("id like '%@'", examId).count == 1 {
-            data = FileManage().getFiles(path: documentPath + "/" + realm.objects(Exam.self).filter("id like '%@'", examId)[0].subject)
+        if realm.objects(Exam.self).filter("id like '" + examId + "'").count > 0 {
+            data = FileManage().getFiles(path: documentPath + "/" + realm.objects(Exam.self).filter("id like '" + examId + "'")[0].subject)
         }
-        
         setUI()
     }
     
@@ -62,7 +62,7 @@ class AddPaperViewController: UIViewController {
         // submit button
         let submitButton = UIButton(frame: CGRect(x: baseView.frame.width - 150, y: tableView.frame.maxY + 30, width: 100, height: 50))
         submitButton.backgroundColor = UIColor.blue
-        submitButton.setTitle("作成", for: UIControl.State.normal)
+        submitButton.setTitle("追加", for: UIControl.State.normal)
         submitButton.titleLabel?.textColor = UIColor.white
         submitButton.addTarget(self, action: #selector(self.pressButton(_:)), for: .touchUpInside)
         baseView.addSubview(submitButton)
@@ -74,9 +74,20 @@ class AddPaperViewController: UIViewController {
     }
     
     @objc func pressButton(_ sender: UIButton){
-        let paper = Paper()
-        try! realm.write() {
-            realm.add(paper)
+        print(selectedData)
+        for e in selectedData {
+            
+            let paper = Paper()
+            paper.examId = examId
+            paper.name = String(e.split(separator: ".")[0])
+            paper.path = "/" + realm.objects(Exam.self).filter("id like '" + examId + "'")[0].subject + "/" + e
+            print(paper.path)
+            if realm.objects(Paper.self).filter("examId like '" + examId + "'").filter("name like '" + paper.name + "'").count == 0 {
+                try! realm.write() {
+                    realm.add(paper)
+                }
+            }
+            
         }
         dismiss(animated: true, completion: nil)
     }
@@ -128,11 +139,13 @@ extension AddPaperViewController: UITableViewDelegate {
         print("select - \(indexPath)")
         let cell = tableView.cellForRow(at:indexPath)
         cell?.accessoryType = .checkmark
+        selectedData.append(data[indexPath.row])
     }
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         print("deselect - \(indexPath)")
         let cell = tableView.cellForRow(at:indexPath)
         cell?.accessoryType = .none
+        selectedData.remove(at: selectedData.firstIndex(of: data[indexPath.row])!)
     }
 }

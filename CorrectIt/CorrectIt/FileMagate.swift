@@ -13,7 +13,7 @@ struct FileManage {
     
     func getFiles(path: String) -> [String] {
         do {
-            return try FileManager.default.contentsOfDirectory(atPath: path)
+            return try FileManager.default.contentsOfDirectory(atPath: path).filter { $0.range(of: ".png") != nil || $0.range(of: ".jpg") != nil }.sorted { $0 < $1 }
         } catch {
             return []
         }
