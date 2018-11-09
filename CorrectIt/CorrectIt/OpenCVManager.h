@@ -11,6 +11,7 @@
 #import <UIKit/UIKit.h>
 @interface OpenCVManager : NSObject
 +(UIImage *)GrayScale:(UIImage *)image;
++(UIImage *)DetectProcess:(UIImage *)Uimage;
 @end
 
 #endif /* OpenCVManager_h */
