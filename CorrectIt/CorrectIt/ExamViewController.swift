@@ -13,6 +13,7 @@ class ExamViewController: UIViewController {
     var exam = Exam()
     let fileManage = FileManage()
     var tableView = UITableView()
+    var segmentView = UISegmentedControl();
     let realm = try! Realm()
     var data: Results<Paper>!
     var notificationToken: NotificationToken?

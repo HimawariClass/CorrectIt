@@ -25,7 +25,7 @@ class Paper: Object {
 class Question: Object {
     @objc dynamic var paperId = ""
     @objc dynamic var examId = ""
-    @objc dynamic var questionNumber = 0
+    @objc dynamic var colorId = 0
     @objc dynamic var path = ""
     @objc dynamic var coordinate: Coordinate?
 }
@@ -35,7 +35,7 @@ class Coordinate: Object {
     @objc dynamic var y = 0
 }
 
-class ColorPalette: Object {
+class Color: Object {
     @objc dynamic var examId = ""
     @objc dynamic var id = 0
     @objc dynamic var color = ""
