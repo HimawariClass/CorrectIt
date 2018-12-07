@@ -7,6 +7,7 @@
 //
 
 import XCTest
+@testable import CorrectIt
 
 class CorrectItTests: XCTestCase {
 
@@ -28,6 +29,11 @@ class CorrectItTests: XCTestCase {
         self.measure {
             // Put the code you want to measure the time of here.
         }
+    }
+    
+    func testColorOperation() {
+        let CO = ColorOperation()
+        print(CO.getColorDifference(rgb1: [255,255,255], rgb2: [245,253,250]))
     }
 
 }

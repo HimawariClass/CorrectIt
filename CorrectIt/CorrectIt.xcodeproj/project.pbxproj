@@ -21,6 +21,8 @@
 		C9999715215E0419002271C0 /* AddPaperViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9999714215E0419002271C0 /* AddPaperViewController.swift */; };
 		C99997172167319F002271C0 /* PaperViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99997162167319F002271C0 /* PaperViewController.swift */; };
 		C9E94BDF21BA34C600CE506D /* CorrectItTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E94BDE21BA34C600CE506D /* CorrectItTests.swift */; };
+		C9E94BE721BA366800CE506D /* ColorOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E94BE621BA366800CE506D /* ColorOperation.swift */; };
+		C9E94BE921BA3BBD00CE506D /* ColorOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E94BE621BA366800CE506D /* ColorOperation.swift */; };
 		D9A63905DEFCF4D0EF53C34A /* Pods_CorrectIt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F1063B9C226DF41708247E4 /* Pods_CorrectIt.framework */; };
 /* End PBXBuildFile section */
 
@@ -60,6 +62,7 @@
 		C9E94BDC21BA34C600CE506D /* CorrectItTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CorrectItTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9E94BDE21BA34C600CE506D /* CorrectItTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CorrectItTests.swift; sourceTree = "<group>"; };
 		C9E94BE021BA34C600CE506D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C9E94BE621BA366800CE506D /* ColorOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorOperation.swift; sourceTree = "<group>"; };
 		FD40AB7E7927A71BB6C47B7C /* Pods-CorrectIt.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CorrectIt.release.xcconfig"; path = "Pods/Target Support Files/Pods-CorrectIt/Pods-CorrectIt.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -146,6 +149,7 @@
 				C99997162167319F002271C0 /* PaperViewController.swift */,
 				C9929B0F20F870A200503D73 /* FileMagate.swift */,
 				C9166E3920D4B5DC009D54BC /* RealmObject.swift */,
+				C9E94BE621BA366800CE506D /* ColorOperation.swift */,
 				C98FE1E520807CC8001C8D32 /* Assets.xcassets */,
 				C98FE1E720807CC8001C8D32 /* LaunchScreen.storyboard */,
 				C98FE1EA20807CC8001C8D32 /* Info.plist */,
@@ -325,6 +329,7 @@
 				C99997172167319F002271C0 /* PaperViewController.swift in Sources */,
 				C98FE1DF20807CC7001C8D32 /* AppDelegate.swift in Sources */,
 				C999970E215CC692002271C0 /* AddExamViewController.swift in Sources */,
+				C9E94BE721BA366800CE506D /* ColorOperation.swift in Sources */,
 				C9166E3C20DCB8B4009D54BC /* ios_conversions.mm in Sources */,
 				C9166E3A20D4B5DC009D54BC /* RealmObject.swift in Sources */,
 				C9999713215DE701002271C0 /* ExamViewController.swift in Sources */,
@@ -339,6 +344,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C9E94BDF21BA34C600CE506D /* CorrectItTests.swift in Sources */,
+				C9E94BE921BA3BBD00CE506D /* ColorOperation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
