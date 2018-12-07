@@ -85,9 +85,9 @@ class AddPaperViewController: UIViewController {
             if realm.objects(Paper.self).filter("examId like '" + examId + "'").filter("name like '" + paper.name + "'").count == 0 {
                 try! realm.write() {
                     realm.add(paper)
-                    if let saved = realm.objects(Paper.self).filter("examId == \(examId)").first {
-                        print(saved)
-                    }
+                }
+                if let saved = realm.objects(Paper.self).filter("examId = \(examId) AND name = \(paper.name)").first {
+                    print(saved)
                     saveQuestionsInRealm()
                 }
             }
