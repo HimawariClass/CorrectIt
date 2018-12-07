@@ -21,7 +21,7 @@ class ExamViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = exam.subject + "の回答"
-        self.view.backgroundColor = UIColor.lightGray
+        self.view.backgroundColor = UIColor.white
         data = realm.objects(Paper.self).filter("examId = %@", exam.id)
         notificationToken = realm.observe { [unowned self] note, realm in
             self.data = realm.objects(Paper.self).filter("examId = %@", self.exam.id)
@@ -32,12 +32,18 @@ class ExamViewController: UIViewController {
     }
     
     func setUI() {
-        tableView.frame = view.frame
+        navigationController?.navigationBar.isTranslucent = false
+        
+        tableView.frame = CGRect(x: 0, y: 40, width: view.frame.width, height: view.frame.height - 40)
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
         tableView.tableFooterView = UIView(frame: .zero)
         view.addSubview(tableView)
+        segmentView = UISegmentedControl(items: ["個人別", "問題別"])
+        segmentView.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: 40)
+        segmentView.selectedSegmentIndex = 0
+        view.addSubview(segmentView)
         
         let addButton: UIBarButtonItem = UIBarButtonItem(title: "回答追加", style: UIBarButtonItem.Style.plain, target: self, action: #selector(MainViewController.tapAddButton))
         self.navigationItem.rightBarButtonItem = addButton
