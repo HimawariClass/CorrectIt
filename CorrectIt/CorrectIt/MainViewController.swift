@@ -75,8 +75,10 @@ extension MainViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        
-        cell.textLabel?.text = data[indexPath.row].subject + " : " + data[indexPath.row].desc
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy/MM/dd HH:mm:ss"
+        formatter.locale = Locale(identifier: "ja_JP")
+        cell.textLabel?.text = data[indexPath.row].subject + " : " + data[indexPath.row].desc + " : " + formatter.string(from: data[indexPath.row].date)
         cell.accessoryType = .disclosureIndicator
         //cell.accessoryView = UISwitch()
         
