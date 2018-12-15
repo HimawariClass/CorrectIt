@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C90B224821C4C3510046A83C /* UIImage+resize.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90B224721C4C3510046A83C /* UIImage+resize.swift */; };
+		C90B224A21C4C3DD0046A83C /* UIImageView+image.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90B224921C4C3DD0046A83C /* UIImageView+image.swift */; };
 		C9166E3A20D4B5DC009D54BC /* RealmObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9166E3920D4B5DC009D54BC /* RealmObject.swift */; };
 		C9166E3C20DCB8B4009D54BC /* ios_conversions.mm in Sources */ = {isa = PBXBuildFile; fileRef = C9166E3B20DCB8B4009D54BC /* ios_conversions.mm */; };
 		C98FE1DF20807CC7001C8D32 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C98FE1DE20807CC7001C8D32 /* AppDelegate.swift */; };
@@ -39,6 +41,8 @@
 /* Begin PBXFileReference section */
 		5E2E3FD7DD219890E4FD755A /* Pods-CorrectIt.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CorrectIt.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CorrectIt/Pods-CorrectIt.debug.xcconfig"; sourceTree = "<group>"; };
 		9F1063B9C226DF41708247E4 /* Pods_CorrectIt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CorrectIt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C90B224721C4C3510046A83C /* UIImage+resize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+resize.swift"; sourceTree = "<group>"; };
+		C90B224921C4C3DD0046A83C /* UIImageView+image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+image.swift"; sourceTree = "<group>"; };
 		C9166E3920D4B5DC009D54BC /* RealmObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmObject.swift; sourceTree = "<group>"; };
 		C9166E3B20DCB8B4009D54BC /* ios_conversions.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ios_conversions.mm; sourceTree = "<group>"; };
 		C98FE1DB20807CC7001C8D32 /* CorrectIt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CorrectIt.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -161,6 +165,8 @@
 			isa = PBXGroup;
 			children = (
 				C9999710215CDCAD002271C0 /* UItextField+Underline.swift */,
+				C90B224921C4C3DD0046A83C /* UIImageView+image.swift */,
+				C90B224721C4C3510046A83C /* UIImage+resize.swift */,
 			);
 			path = Extentions;
 			sourceTree = "<group>";
@@ -333,8 +339,10 @@
 				C9166E3C20DCB8B4009D54BC /* ios_conversions.mm in Sources */,
 				C9166E3A20D4B5DC009D54BC /* RealmObject.swift in Sources */,
 				C9999713215DE701002271C0 /* ExamViewController.swift in Sources */,
+				C90B224821C4C3510046A83C /* UIImage+resize.swift in Sources */,
 				C9929B1020F870A200503D73 /* FileMagate.swift in Sources */,
 				C9999711215CDCAD002271C0 /* UItextField+Underline.swift in Sources */,
+				C90B224A21C4C3DD0046A83C /* UIImageView+image.swift in Sources */,
 				C997E1ED2089AD7D00E4AC67 /* OpenCVManager.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
