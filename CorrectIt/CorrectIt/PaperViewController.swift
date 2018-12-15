@@ -37,7 +37,7 @@ class PaperViewController: UIViewController {
             alert.addAction(cancelAction)
             present(alert, animated: true, completion: nil)
         }
-        paperView.frame = CGRect(x: 0, y: statusBarHeight + navBarHeight!, width: view.frame.width, height: view.frame.height - (statusBarHeight + navBarHeight!))
+        paperView.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height - (statusBarHeight + navBarHeight!))
         paperView.image = image
         paperView.contentMode = .scaleAspectFit
         paperView.frame = paperView.aspectFitFrame!

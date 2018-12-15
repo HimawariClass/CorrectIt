@@ -15,20 +15,21 @@ class ExamViewController: UIViewController {
     var tableView = UITableView()
     var segmentView = UISegmentedControl();
     let realm = try! Realm()
-    var data: Results<Paper>!
+    var paperData: Results<Paper>!
+    var colorData: Results<Color>!
     var notificationToken: NotificationToken?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = exam.subject + "の回答"
         self.view.backgroundColor = UIColor.white
-        data = realm.objects(Paper.self).filter("examId = %@", exam.id)
+        paperData = realm.objects(Paper.self).filter("examId = %@", exam.id)
         notificationToken = realm.observe { [unowned self] note, realm in
-            self.data = realm.objects(Paper.self).filter("examId = %@", self.exam.id)
+            self.segmentView.selectedSegmentIndex = 0
+            self.paperData = realm.objects(Paper.self).filter("examId = %@", self.exam.id)
             self.tableView.reloadData()
         }
         setUI()
-        print(data.count)
     }
     
     func setUI() {
@@ -43,11 +44,27 @@ class ExamViewController: UIViewController {
         segmentView = UISegmentedControl(items: ["個人別", "問題別"])
         segmentView.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: 40)
         segmentView.selectedSegmentIndex = 0
+        segmentView.addTarget(self, action: #selector(ExamViewController.segmentSelected(segment:)), for: UIControl.Event.valueChanged)
         view.addSubview(segmentView)
         
         let addButton: UIBarButtonItem = UIBarButtonItem(title: "回答追加", style: UIBarButtonItem.Style.plain, target: self, action: #selector(MainViewController.tapAddButton))
         self.navigationItem.rightBarButtonItem = addButton
         
+    }
+    
+    @objc func segmentSelected(segment:UISegmentedControl) {
+        switch segment.selectedSegmentIndex {
+        case 0:
+            paperData = realm.objects(Paper.self).filter("examId = %@", exam.id)
+            tableView.reloadData()
+            print("a")
+        case 1:
+            colorData = realm.objects(Color.self).filter("examId = %@", exam.id)
+            tableView.reloadData()
+            print("b")
+        default:
+            print("a")
+        }
     }
     
     @objc func tapAddButton() {
@@ -66,7 +83,15 @@ class ExamViewController: UIViewController {
 extension ExamViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return data.count
+        if segmentView.selectedSegmentIndex == 0 {
+            print("bbbb")
+            return paperData.count
+        } else if segmentView.selectedSegmentIndex == 1 {
+            print("aaaa")
+            return colorData.count
+        } else {
+            return paperData.count
+        }
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -84,9 +109,16 @@ extension ExamViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         
-        cell.textLabel?.text = data[indexPath.row].name
-        cell.accessoryType = .disclosureIndicator
-        //cell.accessoryView = UISwitch()
+        if segmentView.selectedSegmentIndex == 0 {
+            cell.textLabel?.text = paperData[indexPath.row].name
+            cell.accessoryType = .disclosureIndicator
+        } else if segmentView.selectedSegmentIndex == 1 {
+            cell.textLabel?.text = colorData[indexPath.row].name
+            cell.accessoryType = .disclosureIndicator
+        } else {
+            cell.textLabel?.text = paperData[indexPath.row].name
+            cell.accessoryType = .disclosureIndicator
+        }
         
         return cell
     }
@@ -100,7 +132,11 @@ extension ExamViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let controller = PaperViewController()
-        controller.paper = data[indexPath.row]
-        navigationController?.pushViewController(controller, animated: true)
+        if segmentView.selectedSegmentIndex == 0 {
+            controller.paper = paperData[indexPath.row]
+            navigationController?.pushViewController(controller, animated: true)
+        } else {
+            print("sss")
+        }
     }
 }
