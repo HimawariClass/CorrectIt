@@ -64,8 +64,17 @@ class AddPaperViewController: UIViewController {
         submitButton.backgroundColor = UIColor.blue
         submitButton.setTitle("追加", for: UIControl.State.normal)
         submitButton.titleLabel?.textColor = UIColor.white
-        submitButton.addTarget(self, action: #selector(self.pressButton(_:)), for: .touchUpInside)
+        submitButton.addTarget(self, action: #selector(self.pressSubmit(_:)), for: .touchUpInside)
         baseView.addSubview(submitButton)
+
+        // cancel button
+        let cancelButton = UIButton(frame: CGRect(x: baseView.frame.width - 280, y: tableView.frame.maxY + 30, width: 100, height: 50))
+        cancelButton.backgroundColor = UIColor.blue
+        cancelButton.setTitle("キャンセル", for: UIControl.State.normal)
+        cancelButton.titleLabel?.textColor = UIColor.white
+        cancelButton.addTarget(self, action: #selector(self.pressCancel(_:)), for: .touchUpInside)
+        baseView.addSubview(cancelButton)
+
     }
     
     override func setEditing(_ editing: Bool, animated: Bool) {
@@ -73,7 +82,7 @@ class AddPaperViewController: UIViewController {
         tableView.isEditing = editing
     }
     
-    @objc func pressButton(_ sender: UIButton){
+    @objc func pressSubmit(_ sender: UIButton){
         print(selectedData)
         for e in selectedData {
             
@@ -86,7 +95,7 @@ class AddPaperViewController: UIViewController {
                 try! realm.write() {
                     realm.add(paper)
                 }
-                if let saved = realm.objects(Paper.self).filter("examId == '\(examId)' AND name == '\(paper.name)'").first {
+                if let saved = realm.objects(Paper.self).filter("examId = %s AND name = %s", examId, paper.name).first {
                     print(saved)
                     saveQuestionsInRealm(
                         image: UIImage.init(contentsOfFile: documentPath + saved.path)!
@@ -95,6 +104,10 @@ class AddPaperViewController: UIViewController {
             }
             
         }
+        dismiss(animated: true, completion: nil)
+    }
+    
+    @objc func pressCancel(_ sender: UIButton){
         dismiss(animated: true, completion: nil)
     }
     

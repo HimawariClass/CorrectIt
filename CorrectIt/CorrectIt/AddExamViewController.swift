@@ -62,11 +62,19 @@ class AddExamViewController: UIViewController {
         submitButton.backgroundColor = UIColor.blue
         submitButton.setTitle("作成", for: UIControl.State.normal)
         submitButton.titleLabel?.textColor = UIColor.white
-        submitButton.addTarget(self, action: #selector(self.pressButton(_:)), for: .touchUpInside)
+        submitButton.addTarget(self, action: #selector(self.pressSubmit(_:)), for: .touchUpInside)
         baseView.addSubview(submitButton)
+        
+        // cancel button
+        let cancelButton = UIButton(frame: CGRect(x: baseView.frame.width - 280, y: descField.frame.maxY + 30, width: 100, height: 50))
+        cancelButton.backgroundColor = UIColor.blue
+        cancelButton.setTitle("キャンセル", for: UIControl.State.normal)
+        cancelButton.titleLabel?.textColor = UIColor.white
+        cancelButton.addTarget(self, action: #selector(self.pressCancel(_:)), for: .touchUpInside)
+        baseView.addSubview(cancelButton)
     }
     
-    @objc func pressButton(_ sender: UIButton){
+    @objc func pressSubmit(_ sender: UIButton){
         let exam = Exam()
         exam.date = Date()
         exam.subject = titleField.text!
@@ -84,6 +92,10 @@ class AddExamViewController: UIViewController {
             alert.addAction(UIAlertAction(title: "OK", style: .default))
             self.present(alert, animated: true, completion: nil)
         }
+    }
+    
+    @objc func pressCancel(_ sender: UIButton){
+        dismiss(animated: true, completion: nil)
     }
     
     @objc func keyboardWillShow(_ notification: Notification) {
