@@ -10,6 +10,8 @@
 #import <opencv2/imgcodecs/ios.h>
 
 #import <Foundation/Foundation.h>
+#import <ctime>
+#import <iostream>
 #import "OpenCVManager.h"
 
 using namespace std;
@@ -30,25 +32,33 @@ using namespace cv;
     return grayImg;
 }
 
-+(UIImage *)DetectProcess:(UIImage *)Uimage{
++(string )ScalarToHex:(cv::Scalar )scalar {
+    char result[12];
+    sprintf(result, "#%02X%02X%02X", int(scalar[0]), int(scalar[1]), int(scalar[2]));
+    
+    cout << scalar << " -> " << string(result) << endl;
+    return string(result);
+}
+
++(NSMutableDictionary *)DetectProcess:(UIImage *)Uimage{
+    printf("beginning detect process \n");
+    clock_t begin = clock();
+
     //convert
     cv::Mat image, chExt, thed, contoursDrawed;
     UIImageToMat(Uimage, image);
-    
-    cv::cvtColor(image, chExt, CV_BGR2HSV);
-    cv::extractChannel(chExt, chExt, 1);
-    
-    cv::threshold(chExt, thed, 50, 255, CV_THRESH_BINARY);
-    
-    //    return MatToUIImage(thed);
-    
-    cv::morphologyEx(thed, thed, CV_MOP_CLOSE, cv::getStructuringElement(CV_SHAPE_RECT, cv::Size(3, 1)));
-    
+
+    cvtColor(image, chExt, CV_BGR2HSV);
+    extractChannel(chExt, chExt, 1);
+
+    threshold(chExt, thed, 50, 255, CV_THRESH_BINARY);
+    morphologyEx(thed, thed, CV_MOP_CLOSE, getStructuringElement(CV_SHAPE_RECT, cv::Size(3, 1)));
+
     vector<vector<cv::Point>> contours, extracted;
     vector<Vec4i> hierarchy;
-    
-    cv::findContours(thed, contours, hierarchy, CV_RETR_TREE, CV_CHAIN_APPROX_NONE);
-    
+
+    findContours(thed, contours, hierarchy, CV_RETR_TREE, CV_CHAIN_APPROX_NONE);
+
     image.copyTo(contoursDrawed);
     for(const auto& contour: contours) {
         size_t index = &contour - &contours[0];
@@ -60,28 +70,34 @@ using namespace cv;
             continue;
         }
     }
-    
-    cout << extracted.size() << endl;
-    
+
     Mat colorImageCopy;
     image.copyTo(colorImageCopy);
-    vector<cv::Scalar> colors;
+    vector<cv::Scalar> samples;
+    NSMutableDictionary *result = [NSMutableDictionary dictionaryWithCapacity:extracted.size()];;
+    NSString *fortest;
     for (const auto& contour : extracted) {
-        colors = {};
-        const auto M = moments(contour);
-        const auto centerOfCircle = cv::Point(int(M.m10/M.m00), int(M.m01/M.m00));
+        samples = {};
         int cnt = 0;
         for (const auto& approx : contour) {
-            if (cnt == 20) break;
-            //            cout << approx << endl;
-            colors.emplace_back(image.at<Vec4b>(cv::Point(approx.x - 1, approx.y - 1)));
+            if (cnt == 10) break;
+            samples.emplace_back(image.at<Vec4b>(cv::Point(approx.x - 1, approx.y - 1)));
             cnt++;
         }
-        const auto cav = cv::mean(colors);
-        cout << cav << endl;
-        circle(colorImageCopy, centerOfCircle, 100, cav, 20);
+        const auto area = boundingRect(contour);
+        const auto hex = [self ScalarToHex:cv::mean(samples)];
+        UIImage * crop = MatToUIImage(image(area));
+        char buffs[64];
+        sprintf(buffs, "%d:%d:%d:%d:%s", area.x, area.y, area.width, area.height, hex.c_str());
+        NSString *str = [NSString stringWithCString:buffs encoding:NSUTF8StringEncoding];
+        [result setObject:crop forKey:str];
+        fortest = [str copy];
     }
-    UIImage * result = MatToUIImage(colorImageCopy);
+
+    const auto elapsed = double(clock() - begin) / CLOCKS_PER_SEC;
+    printf("elapsed: %.03fsec\n", elapsed);
+    
+    cout << "result.count: " << result.count << endl;
     return result;
 }
 @end

@@ -86,9 +86,11 @@ class AddPaperViewController: UIViewController {
                 try! realm.write() {
                     realm.add(paper)
                 }
-                if let saved = realm.objects(Paper.self).filter("examId = \(examId) AND name = \(paper.name)").first {
+                if let saved = realm.objects(Paper.self).filter("examId == '\(examId)' AND name == '\(paper.name)'").first {
                     print(saved)
-                    saveQuestionsInRealm()
+                    saveQuestionsInRealm(
+                        image: UIImage.init(contentsOfFile: documentPath + saved.path)!
+                    );
                 }
             }
             
@@ -118,8 +120,11 @@ class AddPaperViewController: UIViewController {
         }
     }
     
-    func saveQuestionsInRealm() {
-        
+    func saveQuestionsInRealm(image: UIImage) {
+        let result = OpenCVManager.detectProcess(image) as NSMutableDictionary
+        for item in result {
+            print(item);
+        }
     }
 }
 

@@ -9,9 +9,10 @@
 #ifndef OpenCVManager_h
 #define OpenCVManager_h
 #import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
 @interface OpenCVManager : NSObject
 +(UIImage *)GrayScale:(UIImage *)image;
-+(UIImage *)DetectProcess:(UIImage *)Uimage;
++(NSMutableDictionary *)DetectProcess:(UIImage *)Uimage;
 @end
 
 #endif /* OpenCVManager_h */
