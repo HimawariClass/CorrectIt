@@ -23,6 +23,8 @@ class PaperViewController: UIViewController {
     }
     
     func setUI() {
+        let addButton: UIBarButtonItem = UIBarButtonItem(title: "保存", style: UIBarButtonItem.Style.plain, target: self, action: #selector(PaperViewController.tapAddButton))
+        self.navigationItem.rightBarButtonItem = addButton
         let statusBarHeight: CGFloat = UIApplication.shared.statusBarFrame.height
         let navBarHeight = self.navigationController?.navigationBar.frame.size.height
         var image: UIImage? = UIImage.init(contentsOfFile: documentPath + paper.path)
@@ -93,9 +95,14 @@ class PaperViewController: UIViewController {
     }
     
     override func viewWillDisappear(_ animated: Bool) {
+        print("Disappear")
+    }
+    
+    @objc func tapAddButton() {
         let targetImageView = paperView
         let targetImage = targetImageView.asImage()
         let size = UIImage.init(contentsOfFile: documentPath + paper.path)?.size
         UIImageWriteToSavedPhotosAlbum(targetImage.resize(size: CGSize(width: (size?.width)!, height: (size?.height)!))!, self, nil, nil)
     }
+    
 }
