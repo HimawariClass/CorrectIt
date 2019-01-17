@@ -1,5 +1,5 @@
 //
-//  FileMagate.swift
+//  FileManage.swift
 //  CorrectIt
 //
 //  Created by Taillook on 2018/07/13.

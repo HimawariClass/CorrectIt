@@ -15,7 +15,7 @@
 		C98FE1E120807CC7001C8D32 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C98FE1E020807CC7001C8D32 /* MainViewController.swift */; };
 		C98FE1E620807CC8001C8D32 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C98FE1E520807CC8001C8D32 /* Assets.xcassets */; };
 		C98FE1E920807CC8001C8D32 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C98FE1E720807CC8001C8D32 /* LaunchScreen.storyboard */; };
-		C9929B1020F870A200503D73 /* FileMagate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9929B0F20F870A200503D73 /* FileMagate.swift */; };
+		C9929B1020F870A200503D73 /* FileManage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9929B0F20F870A200503D73 /* FileManage.swift */; };
 		C997E1ED2089AD7D00E4AC67 /* OpenCVManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = C997E1EC2089AD7D00E4AC67 /* OpenCVManager.mm */; };
 		C999970E215CC692002271C0 /* AddExamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C999970D215CC692002271C0 /* AddExamViewController.swift */; };
 		C9999711215CDCAD002271C0 /* UItextField+Underline.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9999710215CDCAD002271C0 /* UItextField+Underline.swift */; };
@@ -51,7 +51,7 @@
 		C98FE1E520807CC8001C8D32 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C98FE1E820807CC8001C8D32 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C98FE1EA20807CC8001C8D32 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C9929B0F20F870A200503D73 /* FileMagate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileMagate.swift; sourceTree = "<group>"; };
+		C9929B0F20F870A200503D73 /* FileManage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManage.swift; sourceTree = "<group>"; };
 		C997E1EC2089AD7D00E4AC67 /* OpenCVManager.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = OpenCVManager.mm; sourceTree = "<group>"; };
 		C997E1EF2089ADCF00E4AC67 /* CorrectIt-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CorrectIt-Bridging-Header.h"; sourceTree = "<group>"; };
 		C997E1F02089AE1100E4AC67 /* OpenCVManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OpenCVManager.h; sourceTree = "<group>"; };
@@ -151,7 +151,7 @@
 				C999970D215CC692002271C0 /* AddExamViewController.swift */,
 				C9999714215E0419002271C0 /* AddPaperViewController.swift */,
 				C99997162167319F002271C0 /* PaperViewController.swift */,
-				C9929B0F20F870A200503D73 /* FileMagate.swift */,
+				C9929B0F20F870A200503D73 /* FileManage.swift */,
 				C9166E3920D4B5DC009D54BC /* RealmObject.swift */,
 				C9E94BE621BA366800CE506D /* ColorOperation.swift */,
 				C98FE1E520807CC8001C8D32 /* Assets.xcassets */,
@@ -340,7 +340,7 @@
 				C9166E3A20D4B5DC009D54BC /* RealmObject.swift in Sources */,
 				C9999713215DE701002271C0 /* ExamViewController.swift in Sources */,
 				C90B224821C4C3510046A83C /* UIImage+resize.swift in Sources */,
-				C9929B1020F870A200503D73 /* FileMagate.swift in Sources */,
+				C9929B1020F870A200503D73 /* FileManage.swift in Sources */,
 				C9999711215CDCAD002271C0 /* UItextField+Underline.swift in Sources */,
 				C90B224A21C4C3DD0046A83C /* UIImageView+image.swift in Sources */,
 				C997E1ED2089AD7D00E4AC67 /* OpenCVManager.mm in Sources */,
