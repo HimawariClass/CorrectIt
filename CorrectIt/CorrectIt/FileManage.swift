@@ -13,7 +13,7 @@ struct FileManage {
     
     func getFiles(path: String) -> [String] {
         do {
-            return try FileManager.default.contentsOfDirectory(atPath: path).filter { $0.range(of: ".png") != nil || $0.range(of: ".jpg") != nil }.sorted { $0 < $1 }
+            return try FileManager.default.contentsOfDirectory(atPath: path).filter { $0.range(of: ".png") != nil || $0.range(of: ".jpg") != nil || $0.range(of: ".jpeg") != nil }.sorted { $0 < $1 }
         } catch {
             return []
         }
@@ -24,6 +24,30 @@ struct FileManage {
             return try FileManager.default.contentsOfDirectory(atPath: path).filter { $0.range(of: ".") == nil }
         } catch {
             return []
+        }
+    }
+    
+    func createDirectory(basePath: String, dir: String) {
+        let documentsPath = URL(fileURLWithPath: basePath)
+        let path = documentsPath.appendingPathComponent(dir)
+        do
+        {
+            try FileManager.default.createDirectory(atPath: path.path, withIntermediateDirectories: true, attributes: nil)
+        }
+        catch let error as NSError
+        {
+            print("Unable to create directory \(error.debugDescription)")
+        }
+    }
+    
+    func saveImage(path: String, image: UIImage) {
+        let pngImageData = image.pngData()
+
+        do {
+            try pngImageData?.write(to: URL(fileURLWithPath: path), options: .atomic)
+        }
+        catch let error as NSError {
+            print(error.debugDescription)
         }
     }
 }

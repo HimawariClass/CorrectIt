@@ -15,6 +15,7 @@ class AddExamViewController: UIViewController {
     var baseView = UIView()
     var descField = UITextField()
     var titleField = UITextField()
+    let basePath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,7 +68,7 @@ class AddExamViewController: UIViewController {
         
         // cancel button
         let cancelButton = UIButton(frame: CGRect(x: baseView.frame.width - 280, y: descField.frame.maxY + 30, width: 100, height: 50))
-        cancelButton.backgroundColor = UIColor.blue
+        cancelButton.backgroundColor = UIColor.red
         cancelButton.setTitle("キャンセル", for: UIControl.State.normal)
         cancelButton.titleLabel?.textColor = UIColor.white
         cancelButton.addTarget(self, action: #selector(self.pressCancel(_:)), for: .touchUpInside)
@@ -83,6 +84,9 @@ class AddExamViewController: UIViewController {
             try! realm.write() {
                 realm.add(exam)
             }
+            let formatter = DateFormatter()
+            formatter.dateFormat = "-yyyy-MM-dd-HH-mm-ss"
+            FileManage().createDirectory(basePath: basePath, dir: exam.subject + formatter.string(from: exam.date))
             dismiss(animated: true, completion: nil)
         } else {
             let alert = UIAlertController(

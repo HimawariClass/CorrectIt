@@ -33,7 +33,10 @@ class AddPaperViewController: UIViewController {
         
         let realm = try! Realm()
         if realm.objects(Exam.self).filter("id like '" + examId + "'").count > 0 {
-            data = FileManage().getFiles(path: documentPath + "/" + realm.objects(Exam.self).filter("id like '" + examId + "'")[0].subject)
+            let exam = realm.objects(Exam.self).filter("id like '" + examId + "'")[0]
+            let formatter = DateFormatter()
+            formatter.dateFormat = "-yyyy-MM-dd-HH-mm-ss"
+            data = FileManage().getFiles(path: documentPath + "/" + exam.subject + formatter.string(from: exam.date))
         }
         setUI()
     }
@@ -69,7 +72,7 @@ class AddPaperViewController: UIViewController {
 
         // cancel button
         let cancelButton = UIButton(frame: CGRect(x: baseView.frame.width - 280, y: tableView.frame.maxY + 30, width: 100, height: 50))
-        cancelButton.backgroundColor = UIColor.blue
+        cancelButton.backgroundColor = UIColor.red
         cancelButton.setTitle("キャンセル", for: UIControl.State.normal)
         cancelButton.titleLabel?.textColor = UIColor.white
         cancelButton.addTarget(self, action: #selector(self.pressCancel(_:)), for: .touchUpInside)
@@ -89,7 +92,10 @@ class AddPaperViewController: UIViewController {
             let paper = Paper()
             paper.examId = examId
             paper.name = String(e.split(separator: ".")[0])
-            paper.path = "/" + realm.objects(Exam.self).filter("id like '" + examId + "'")[0].subject + "/" + e
+            let exam = realm.objects(Exam.self).filter("id like '" + examId + "'")[0]
+            let formatter = DateFormatter()
+            formatter.dateFormat = "-yyyy-MM-dd-HH-mm-ss"
+            paper.path = "/" + exam.subject + formatter.string(from: exam.date) + "/" + e
             print(paper.path)
             if realm.objects(Paper.self).filter("examId like '" + examId + "'").filter("name like '" + paper.name + "'").count == 0 {
                 try! realm.write() {
@@ -98,7 +104,8 @@ class AddPaperViewController: UIViewController {
                 if let saved = realm.objects(Paper.self).filter("examId = %s AND name = %s", examId, paper.name).first {
                     print(saved)
                     saveQuestionsInRealm(
-                        image: UIImage.init(contentsOfFile: documentPath + saved.path)!
+                        image: UIImage.init(contentsOfFile: documentPath + saved.path)!,
+                        imagePath: documentPath + saved.path
                     );
                 }
             }
@@ -133,17 +140,23 @@ class AddPaperViewController: UIViewController {
         }
     }
     
-    func saveQuestionsInRealm(image: UIImage) {
+    func saveQuestionsInRealm(image: UIImage, imagePath: String) {
         let result = OpenCVManager.detectProcess(image) as NSMutableDictionary
         let position: Coordinate = Coordinate()
+        var splitedImagePath = imagePath.components(separatedBy: ".")
+        splitedImagePath.removeLast()
+        var basePathList = splitedImagePath.joined(separator: "/").split(separator: "/")
+        let dir = String(basePathList.removeLast())
+        let basePath = basePathList.joined(separator: "/")
         
         for item in result {
             let splitted = (item.key as! String).components(separatedBy: ":")
             position.x = Int(splitted[0])!
             position.y = Int(splitted[1])!
-            var colorCode = splitted[2]
-            var im = item.value as! UIImage
-            
+            let colorCode = splitted[2]
+            let im = item.value as! UIImage
+            FileManage().createDirectory(basePath: basePath, dir: dir)
+            FileManage().saveImage(path: basePath + "/" + dir + "/\(colorCode).png", image: im)
             print("pos: (\(position.x), \(position.y))")
             print("colorCode: \(colorCode)")
         }
