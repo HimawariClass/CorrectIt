@@ -135,8 +135,17 @@ class AddPaperViewController: UIViewController {
     
     func saveQuestionsInRealm(image: UIImage) {
         let result = OpenCVManager.detectProcess(image) as NSMutableDictionary
+        let position: Coordinate = Coordinate()
+        
         for item in result {
-            print(item);
+            let splitted = (item.key as! String).components(separatedBy: ":")
+            position.x = Int(splitted[0])!
+            position.y = Int(splitted[1])!
+            var colorCode = splitted[2]
+            var im = item.value as! UIImage
+            
+            print("pos: (\(position.x), \(position.y))")
+            print("colorCode: \(colorCode)")
         }
     }
 }

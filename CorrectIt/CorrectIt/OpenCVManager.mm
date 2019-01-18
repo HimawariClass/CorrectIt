@@ -88,7 +88,7 @@ using namespace cv;
         const auto hex = [self ScalarToHex:cv::mean(samples)];
         UIImage * crop = MatToUIImage(image(area));
         char buffs[64];
-        sprintf(buffs, "%d:%d:%d:%d:%s", area.x, area.y, area.width, area.height, hex.c_str());
+        sprintf(buffs, "%d:%d:%s", area.x, area.y, hex.c_str());
         NSString *str = [NSString stringWithCString:buffs encoding:NSUTF8StringEncoding];
         [result setObject:crop forKey:str];
         fortest = [str copy];
