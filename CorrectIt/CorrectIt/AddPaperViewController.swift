@@ -105,7 +105,8 @@ class AddPaperViewController: UIViewController {
                     print(saved)
                     saveQuestionsInRealm(
                         image: UIImage.init(contentsOfFile: documentPath + saved.path)!,
-                        imagePath: documentPath + saved.path
+                        imagePath: documentPath + saved.path,
+                        paper: saved
                     );
                 }
             }
@@ -140,9 +141,8 @@ class AddPaperViewController: UIViewController {
         }
     }
     
-    func saveQuestionsInRealm(image: UIImage, imagePath: String) {
+    func saveQuestionsInRealm(image: UIImage, imagePath: String, paper: Paper) {
         let result = OpenCVManager.detectProcess(image) as NSMutableDictionary
-        let position: Coordinate = Coordinate()
         var splitedImagePath = imagePath.components(separatedBy: ".")
         splitedImagePath.removeLast()
         var basePathList = splitedImagePath.joined(separator: "/").split(separator: "/")
@@ -151,13 +151,53 @@ class AddPaperViewController: UIViewController {
         
         for item in result {
             let splitted = (item.key as! String).components(separatedBy: ":")
-            position.x = Int(splitted[0])!
-            position.y = Int(splitted[1])!
             let colorCode = splitted[2]
             let im = item.value as! UIImage
             FileManage().createDirectory(basePath: basePath, dir: dir)
             FileManage().saveImage(path: basePath + "/" + dir + "/\(colorCode).png", image: im)
-            print("pos: (\(position.x), \(position.y))")
+            if realm.objects(Color.self).filter("examId = %s", examId).count < result.count {
+                let color = Color()
+                try! realm.write() {
+                    color.color = colorCode
+                    color.examId = examId
+                    color.id = realm.objects(Color.self).filter("examId = %s", examId).count
+                    color.name = colorCode
+                    realm.add(color)
+                }
+                
+                let question = Question()
+                try! realm.write() {
+                    question.colorId = color.id
+                    question.coordinate = Coordinate()
+                    question.coordinate?.x = Int(splitted[0])!
+                    question.coordinate!.y = Int(splitted[1])!
+                    question.paperId = paper.id
+                    question.path = basePath + "/" + dir + "/\(colorCode).png"
+                    question.examId = examId
+                    realm.add(question)
+                }
+            } else {
+                let colorOp = ColorOperation()
+                let colors = realm.objects(Color.self).filter("examId = %s", examId)
+                
+                var colordiffs: [[Any]] = colors.map {
+                    [colorOp.getColorDifference(rgb1: colorOp.getRGBFromHEX(hex: $0.color), rgb2: colorOp.getRGBFromHEX(hex: colorCode)), $0.id]
+                }
+                colordiffs.sort {$0[0] as! Int > $1[0] as! Int}
+                
+                let question = Question()
+                question.colorId = colordiffs.reversed().first?[1] as! Int
+                question.coordinate = Coordinate()
+                question.coordinate?.x = Int(splitted[0])!
+                question.coordinate!.y = Int(splitted[1])!
+                question.paperId = paper.id
+                question.path = basePath + "/" + dir + "/\(colorCode).png"
+                question.examId = examId
+                
+                try! realm.write() {
+                    realm.add(question)
+                }
+            }
             print("colorCode: \(colorCode)")
         }
     }
