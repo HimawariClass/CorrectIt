@@ -9,7 +9,12 @@
 import UIKit
 
 class EachColorCell: UITableViewCell {
-
+    @IBOutlet weak var mainLabel: UILabel!
+    
+    @IBOutlet weak var imgView: UIImageView!
+    
+    @IBOutlet weak var exLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

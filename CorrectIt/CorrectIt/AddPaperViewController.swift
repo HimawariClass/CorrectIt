@@ -172,7 +172,7 @@ class AddPaperViewController: UIViewController {
                     question.coordinate?.x = Int(splitted[0])!
                     question.coordinate!.y = Int(splitted[1])!
                     question.paperId = paper.id
-                    question.path = basePath + "/" + dir + "/\(colorCode).png"
+                    question.path = "/" + dir + "/\(colorCode).png"
                     question.examId = examId
                     realm.add(question)
                 }
@@ -191,7 +191,9 @@ class AddPaperViewController: UIViewController {
                 question.coordinate?.x = Int(splitted[0])!
                 question.coordinate!.y = Int(splitted[1])!
                 question.paperId = paper.id
-                question.path = basePath + "/" + dir + "/\(colorCode).png"
+                let formatter = DateFormatter()
+                formatter.dateFormat = "-yyyy-MM-dd-HH-mm-ss"
+                question.path = "/" + dir + "/\(colorCode).png"
                 question.examId = examId
                 
                 try! realm.write() {
