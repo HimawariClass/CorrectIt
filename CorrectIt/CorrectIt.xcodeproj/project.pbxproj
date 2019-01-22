@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7DA187FD21F6D15C0085C5D9 /* EachColorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA187FB21F6D15C0085C5D9 /* EachColorCell.swift */; };
+		7DA187FE21F6D15C0085C5D9 /* EachColorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7DA187FC21F6D15C0085C5D9 /* EachColorCell.xib */; };
 		C90B224821C4C3510046A83C /* UIImage+resize.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90B224721C4C3510046A83C /* UIImage+resize.swift */; };
 		C90B224A21C4C3DD0046A83C /* UIImageView+image.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90B224921C4C3DD0046A83C /* UIImageView+image.swift */; };
 		C9166E3A20D4B5DC009D54BC /* RealmObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9166E3920D4B5DC009D54BC /* RealmObject.swift */; };
@@ -40,6 +42,8 @@
 
 /* Begin PBXFileReference section */
 		5E2E3FD7DD219890E4FD755A /* Pods-CorrectIt.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CorrectIt.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CorrectIt/Pods-CorrectIt.debug.xcconfig"; sourceTree = "<group>"; };
+		7DA187FB21F6D15C0085C5D9 /* EachColorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EachColorCell.swift; sourceTree = "<group>"; };
+		7DA187FC21F6D15C0085C5D9 /* EachColorCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EachColorCell.xib; sourceTree = "<group>"; };
 		9F1063B9C226DF41708247E4 /* Pods_CorrectIt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CorrectIt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C90B224721C4C3510046A83C /* UIImage+resize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+resize.swift"; sourceTree = "<group>"; };
 		C90B224921C4C3DD0046A83C /* UIImageView+image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+image.swift"; sourceTree = "<group>"; };
@@ -157,6 +161,8 @@
 				C98FE1E520807CC8001C8D32 /* Assets.xcassets */,
 				C98FE1E720807CC8001C8D32 /* LaunchScreen.storyboard */,
 				C98FE1EA20807CC8001C8D32 /* Info.plist */,
+				7DA187FB21F6D15C0085C5D9 /* EachColorCell.swift */,
+				7DA187FC21F6D15C0085C5D9 /* EachColorCell.xib */,
 			);
 			path = CorrectIt;
 			sourceTree = "<group>";
@@ -265,6 +271,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C98FE1E920807CC8001C8D32 /* LaunchScreen.storyboard in Resources */,
+				7DA187FE21F6D15C0085C5D9 /* EachColorCell.xib in Resources */,
 				C98FE1E620807CC8001C8D32 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -344,6 +351,7 @@
 				C9999711215CDCAD002271C0 /* UItextField+Underline.swift in Sources */,
 				C90B224A21C4C3DD0046A83C /* UIImageView+image.swift in Sources */,
 				C997E1ED2089AD7D00E4AC67 /* OpenCVManager.mm in Sources */,
+				7DA187FD21F6D15C0085C5D9 /* EachColorCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
