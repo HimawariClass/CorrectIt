@@ -139,10 +139,6 @@ extension ExamViewController: UITableViewDataSource {
 //            let clorlist = ColorOperation().getRGBFromHEX(hex: colorData[indexPath.row].color)
             let formatter = DateFormatter()
             formatter.dateFormat = "-yyyy-MM-dd-HH-mm-ss"
-            print(documentPath + exam.subject + formatter.string(from: exam.date) + question!.path)
-            if UIImage.init(contentsOfFile: documentPath + exam.subject + formatter.string(from: exam.date) + question!.path) == nil {
-                print("nil")
-            }
             colorCell.imgView.image = UIImage.init(contentsOfFile: documentPath + "/" + exam.subject + formatter.string(from: exam.date) + question!.path)
             colorCell.imgView.backgroundColor = UIColor.blue
             colorCell.exLabel.text = colorData[indexPath.row].color

@@ -155,7 +155,7 @@ class AddPaperViewController: UIViewController {
             let im = item.value as! UIImage
             FileManage().createDirectory(basePath: basePath, dir: dir)
             FileManage().saveImage(path: basePath + "/" + dir + "/\(colorCode).png", image: im)
-            if realm.objects(Color.self).filter("examId = %s", examId).count < result.count {
+            if realm.objects(Color.self).filter("examId = %s", examId).count == 0 {
                 let color = Color()
                 try! realm.write() {
                     color.color = colorCode
@@ -185,19 +185,39 @@ class AddPaperViewController: UIViewController {
                 }
                 colordiffs.sort {$0[0] as! Int > $1[0] as! Int}
                 
-                let question = Question()
-                question.colorId = colordiffs.reversed().first?[1] as! Int
-                question.coordinate = Coordinate()
-                question.coordinate?.x = Int(splitted[0])!
-                question.coordinate!.y = Int(splitted[1])!
-                question.paperId = paper.id
-                let formatter = DateFormatter()
-                formatter.dateFormat = "-yyyy-MM-dd-HH-mm-ss"
-                question.path = "/" + dir + "/\(colorCode).png"
-                question.examId = examId
-                
-                try! realm.write() {
-                    realm.add(question)
+                if colordiffs.reversed().first?[0] as! Int > 10 {
+                    let color = Color()
+                    try! realm.write() {
+                        color.color = colorCode
+                        color.examId = examId
+                        color.id = realm.objects(Color.self).filter("examId = %s", examId).count
+                        color.name = colorCode
+                        realm.add(color)
+                    }
+                    
+                    let question = Question()
+                    try! realm.write() {
+                        question.colorId = color.id
+                        question.coordinate = Coordinate()
+                        question.coordinate?.x = Int(splitted[0])!
+                        question.coordinate!.y = Int(splitted[1])!
+                        question.paperId = paper.id
+                        question.path = "/" + dir + "/\(colorCode).png"
+                        question.examId = examId
+                        realm.add(question)
+                    }
+                } else {
+                    let question = Question()
+                    try! realm.write() {
+                        question.colorId = colordiffs.reversed().first?[1] as! Int
+                        question.coordinate = Coordinate()
+                        question.coordinate?.x = Int(splitted[0])!
+                        question.coordinate!.y = Int(splitted[1])!
+                        question.paperId = paper.id
+                        question.path = "/" + dir + "/\(colorCode).png"
+                        question.examId = examId
+                        realm.add(question)
+                    }
                 }
             }
             print("colorCode: \(colorCode)")
