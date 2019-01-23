@@ -162,6 +162,7 @@ extension ExamViewController: UITableViewDelegate {
         if segmentView.selectedSegmentIndex == 0 {
             let controller = PaperViewController()
             controller.paper = paperData[indexPath.row]
+            controller.exam = exam
             navigationController?.pushViewController(controller, animated: true)
         } else {
             let controller = QuestionListViewController()

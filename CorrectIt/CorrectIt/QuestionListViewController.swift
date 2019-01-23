@@ -89,8 +89,10 @@ extension QuestionListViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let controller = PaperViewController()
-        print("sss")
+        let controller = QuestionViewController()
+        controller.question = questionData[indexPath.row]
+        controller.exam = exam
+        navigationController?.pushViewController(controller, animated: true)
     }
 }
 

@@ -7,14 +7,17 @@
 //
 
 import UIKit
+import RealmSwift
 
 class PaperViewController: UIViewController {
     let paperView = UIImageView()
     let documentPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
     var paper = Paper()
+    var exam = Exam()
     var tapLocation1 = CGPoint()
     var tapLocation2 = CGPoint()
     var linePath = UIBezierPath()
+    let realm = try! Realm()
     
     override func viewDidLoad() {
         view.backgroundColor = UIColor.white
@@ -25,8 +28,6 @@ class PaperViewController: UIViewController {
     func setUI() {
         let addButton: UIBarButtonItem = UIBarButtonItem(title: "保存", style: UIBarButtonItem.Style.plain, target: self, action: #selector(PaperViewController.tapAddButton))
         self.navigationItem.rightBarButtonItem = addButton
-        let statusBarHeight: CGFloat = UIApplication.shared.statusBarFrame.height
-        let navBarHeight = self.navigationController?.navigationBar.frame.size.height
         var image: UIImage? = UIImage.init(contentsOfFile: documentPath + paper.path)
         if image == nil {
             image = UIImage()
@@ -39,13 +40,25 @@ class PaperViewController: UIViewController {
             alert.addAction(cancelAction)
             present(alert, animated: true, completion: nil)
         }
-        paperView.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height - (statusBarHeight + navBarHeight!))
+        paperView.frame = CGRect(x: 0, y: 0, width: image?.size.width ?? 0, height: image?.size.height ?? 0)
         paperView.image = image
         paperView.contentMode = .scaleAspectFit
         paperView.frame = paperView.aspectFitFrame!
         paperView.isUserInteractionEnabled = true
         paperView.tag = 256
         view.addSubview(paperView)
+        
+        view.backgroundColor = UIColor.black
+        
+        let questionData = realm.objects(Question.self).filter("paperId = %@", paper.id)
+        for question in questionData {
+            let imageView = UIImageView()
+            let formatter = DateFormatter()
+            formatter.dateFormat = "-yyyy-MM-dd-HH-mm-ss"
+            imageView.image = UIImage.init(contentsOfFile: documentPath + "/" + exam.subject + formatter.string(from: exam.date) + question.path)
+            imageView.frame = CGRect(x: CGFloat(question.coordinate?.x ?? 0), y: CGFloat(question.coordinate?.y ?? 0), width: imageView.image?.size.width ?? 0, height: imageView.image?.size.height ?? 0)
+            paperView.addSubview(imageView)
+        }
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -102,7 +115,8 @@ class PaperViewController: UIViewController {
         let targetImageView = paperView
         let targetImage = targetImageView.asImage()
         let size = UIImage.init(contentsOfFile: documentPath + paper.path)?.size
-        UIImageWriteToSavedPhotosAlbum(targetImage.resize(size: CGSize(width: (size?.width)!, height: (size?.height)!))!, self, nil, nil)
+        FileManage().saveImage(path: documentPath + paper.path, image: targetImage.resize(size: CGSize(width: (size?.width)!, height: (size?.height)!))!)
+        navigationController?.popViewController(animated: true)
     }
     
 }
