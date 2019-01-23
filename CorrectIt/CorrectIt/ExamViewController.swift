@@ -159,12 +159,15 @@ extension ExamViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let controller = PaperViewController()
         if segmentView.selectedSegmentIndex == 0 {
+            let controller = PaperViewController()
             controller.paper = paperData[indexPath.row]
             navigationController?.pushViewController(controller, animated: true)
         } else {
-            print("sss")
+            let controller = QuestionListViewController()
+            controller.exam = exam
+            controller.color = colorData[indexPath.row]
+            navigationController?.pushViewController(controller, animated: true)
         }
     }
 }

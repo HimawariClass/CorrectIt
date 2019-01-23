@@ -24,6 +24,10 @@
 		C9999713215DE701002271C0 /* ExamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9999712215DE701002271C0 /* ExamViewController.swift */; };
 		C9999715215E0419002271C0 /* AddPaperViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9999714215E0419002271C0 /* AddPaperViewController.swift */; };
 		C99997172167319F002271C0 /* PaperViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99997162167319F002271C0 /* PaperViewController.swift */; };
+		C9B74CB521F877FB00947CB1 /* QuestionListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B74CB421F877FB00947CB1 /* QuestionListViewController.swift */; };
+		C9B74CB721F8781600947CB1 /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B74CB621F8781600947CB1 /* QuestionViewController.swift */; };
+		C9B74CB921F8926500947CB1 /* EachQuestionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9B74CB821F8926500947CB1 /* EachQuestionCell.xib */; };
+		C9B74CBB21F8947400947CB1 /* EachQuestionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B74CBA21F8947400947CB1 /* EachQuestionCell.swift */; };
 		C9E94BDF21BA34C600CE506D /* CorrectItTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E94BDE21BA34C600CE506D /* CorrectItTests.swift */; };
 		C9E94BE721BA366800CE506D /* ColorOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E94BE621BA366800CE506D /* ColorOperation.swift */; };
 		C9E94BE921BA3BBD00CE506D /* ColorOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E94BE621BA366800CE506D /* ColorOperation.swift */; };
@@ -67,6 +71,10 @@
 		C9999712215DE701002271C0 /* ExamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamViewController.swift; sourceTree = "<group>"; };
 		C9999714215E0419002271C0 /* AddPaperViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPaperViewController.swift; sourceTree = "<group>"; };
 		C99997162167319F002271C0 /* PaperViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaperViewController.swift; sourceTree = "<group>"; };
+		C9B74CB421F877FB00947CB1 /* QuestionListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionListViewController.swift; sourceTree = "<group>"; };
+		C9B74CB621F8781600947CB1 /* QuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
+		C9B74CB821F8926500947CB1 /* EachQuestionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EachQuestionCell.xib; sourceTree = "<group>"; };
+		C9B74CBA21F8947400947CB1 /* EachQuestionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EachQuestionCell.swift; sourceTree = "<group>"; };
 		C9E94BDC21BA34C600CE506D /* CorrectItTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CorrectItTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9E94BDE21BA34C600CE506D /* CorrectItTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CorrectItTests.swift; sourceTree = "<group>"; };
 		C9E94BE021BA34C600CE506D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -152,6 +160,8 @@
 				C9166E3820D38531009D54BC /* OpenCV */,
 				C98FE1E020807CC7001C8D32 /* MainViewController.swift */,
 				C9999712215DE701002271C0 /* ExamViewController.swift */,
+				C9B74CB421F877FB00947CB1 /* QuestionListViewController.swift */,
+				C9B74CB621F8781600947CB1 /* QuestionViewController.swift */,
 				C99997162167319F002271C0 /* PaperViewController.swift */,
 				C9999714215E0419002271C0 /* AddPaperViewController.swift */,
 				C999970D215CC692002271C0 /* AddExamViewController.swift */,
@@ -163,6 +173,8 @@
 				C98FE1EA20807CC8001C8D32 /* Info.plist */,
 				7DA187FB21F6D15C0085C5D9 /* EachColorCell.swift */,
 				7DA187FC21F6D15C0085C5D9 /* EachColorCell.xib */,
+				C9B74CBA21F8947400947CB1 /* EachQuestionCell.swift */,
+				C9B74CB821F8926500947CB1 /* EachQuestionCell.xib */,
 			);
 			path = CorrectIt;
 			sourceTree = "<group>";
@@ -272,6 +284,7 @@
 			files = (
 				C98FE1E920807CC8001C8D32 /* LaunchScreen.storyboard in Resources */,
 				7DA187FE21F6D15C0085C5D9 /* EachColorCell.xib in Resources */,
+				C9B74CB921F8926500947CB1 /* EachQuestionCell.xib in Resources */,
 				C98FE1E620807CC8001C8D32 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -345,10 +358,13 @@
 				C9E94BE721BA366800CE506D /* ColorOperation.swift in Sources */,
 				C9166E3C20DCB8B4009D54BC /* ios_conversions.mm in Sources */,
 				C9166E3A20D4B5DC009D54BC /* RealmObject.swift in Sources */,
+				C9B74CBB21F8947400947CB1 /* EachQuestionCell.swift in Sources */,
+				C9B74CB721F8781600947CB1 /* QuestionViewController.swift in Sources */,
 				C9999713215DE701002271C0 /* ExamViewController.swift in Sources */,
 				C90B224821C4C3510046A83C /* UIImage+resize.swift in Sources */,
 				C9929B1020F870A200503D73 /* FileManage.swift in Sources */,
 				C9999711215CDCAD002271C0 /* UItextField+Underline.swift in Sources */,
+				C9B74CB521F877FB00947CB1 /* QuestionListViewController.swift in Sources */,
 				C90B224A21C4C3DD0046A83C /* UIImageView+image.swift in Sources */,
 				C997E1ED2089AD7D00E4AC67 /* OpenCVManager.mm in Sources */,
 				7DA187FD21F6D15C0085C5D9 /* EachColorCell.swift in Sources */,
