@@ -48,6 +48,7 @@ class PaperViewController: UIViewController {
         paperView.tag = 256
         view.addSubview(paperView)
         
+        title = paper.name
         view.backgroundColor = UIColor.black
         
         let questionData = realm.objects(Question.self).filter("paperId = %@", paper.id)

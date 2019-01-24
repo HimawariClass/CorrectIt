@@ -48,6 +48,7 @@ class QuestionViewController: UIViewController {
         paperView.isUserInteractionEnabled = true
         paperView.tag = 256
         view.backgroundColor = UIColor.black
+        title = String(question.path.split(separator: "/").reversed()[1])
         view.addSubview(paperView)
         print("表示")
     }
