@@ -14,6 +14,8 @@ class QuestionListViewController: UIViewController {
     var color = Color()
     let fileManage = FileManage()
     var tableView = UITableView()
+    var textfield = UITextField()
+    var button = UIButton()
     let realm = try! Realm()
     var questionData: Results<Question>!
     let documentPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
@@ -37,16 +39,35 @@ class QuestionListViewController: UIViewController {
         tableView.tag = 111
         view.addSubview(tableView)
         
+        textfield.frame = CGRect(x: 0, y: 0, width: view.frame.width - 100, height: 40)
+        textfield.text = color.name
+        view.addSubview(textfield)
+        
+        button.frame = CGRect(x: view.frame.width - 100, y: 0, width: 100, height: 40)
+        button.setTitle("決定", for: .normal)
+        button.setTitleColor(UIColor.white, for: .normal)
+        button.backgroundColor = UIColor.blue
+        button.addTarget(self, action: #selector(QuestionListViewController.tapChangeNameButton), for: .touchUpInside)
+        view.addSubview(button)
+        
 //        let addButton: UIBarButtonItem = UIBarButtonItem(title: "回答追加", style: UIBarButtonItem.Style.plain, target: self, action: #selector(MainViewController.tapAddButton))
 //        self.navigationItem.rightBarButtonItem = addButton
         
     }
     
-    @objc func tapAddButton() {
-        let controller = AddPaperViewController()
-        controller.examId = exam.id
-        controller.modalPresentationStyle = .overCurrentContext
-        present(controller, animated: true, completion: nil)
+    @objc func tapChangeNameButton() {
+        try! realm.write {
+            color.name = textfield.text ?? color.name
+        }
+        
+        let alert:UIAlertController = UIAlertController(title:"問題名を変更しました",
+                                                        message: textfield.text,
+                                                        preferredStyle: UIAlertController.Style.alert)
+        let cancelAction:UIAlertAction = UIAlertAction(title: "閉じる",
+                                                       style: UIAlertAction.Style.cancel,
+                                                       handler: nil)
+        alert.addAction(cancelAction)
+        present(alert, animated: true, completion: nil)
     }
     
     override func didReceiveMemoryWarning() {
