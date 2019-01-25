@@ -37,8 +37,10 @@ class ExamViewController: UIViewController {
     
     func setUI() {
         navigationController?.navigationBar.isTranslucent = false
+        let navheight = self.navigationController?.navigationBar.frame.height
+        let statusheight = UIApplication.shared.statusBarFrame.height
         
-        tableView1.frame = CGRect(x: 0, y: 40, width: view.frame.width, height: view.frame.height - 40)
+        tableView1.frame = CGRect(x: 0, y: 40, width: view.frame.width, height: view.frame.height - 40 - ((navheight ?? 0) + statusheight))
         tableView1.delegate = self
         tableView1.dataSource = self
         tableView1.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
@@ -47,7 +49,7 @@ class ExamViewController: UIViewController {
         tableView1.tag = 111
         view.addSubview(tableView1)
         
-        tableView2.frame = CGRect(x: 0, y: 40, width: view.frame.width, height: view.frame.height - 40)
+        tableView2.frame = CGRect(x: 0, y: 40, width: view.frame.width, height: view.frame.height - 40 - ((navheight ?? 0) + statusheight))
         tableView2.delegate = self
         tableView2.dataSource = self
         tableView2.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")

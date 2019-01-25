@@ -77,7 +77,6 @@ class AddPaperViewController: UIViewController {
         cancelButton.titleLabel?.textColor = UIColor.white
         cancelButton.addTarget(self, action: #selector(self.pressCancel(_:)), for: .touchUpInside)
         baseView.addSubview(cancelButton)
-
     }
     
     override func setEditing(_ editing: Bool, animated: Bool) {
@@ -97,6 +96,16 @@ class AddPaperViewController: UIViewController {
             formatter.dateFormat = "-yyyy-MM-dd-HH-mm-ss"
             paper.path = "/" + exam.subject + formatter.string(from: exam.date) + "/" + e
             print(paper.path)
+            let navheight = self.navigationController?.navigationBar.frame.height
+            let statusheight = UIApplication.shared.statusBarFrame.height
+            let taegetImage = UIImage.init(contentsOfFile: documentPath + paper.path)
+            let wratio = view.frame.width / (taegetImage?.size.width ?? 0)
+            let tmp = (view.frame.height - ((navheight ?? 0) + statusheight) )
+            let hratio = (tmp - 44) / (taegetImage?.size.height ?? 0)
+            let ratio = wratio > hratio ? hratio : wratio
+            let height = (taegetImage?.size.height ?? 0) * ratio
+            let width = (taegetImage?.size.width ?? 0) * ratio
+            FileManage().saveImage(path: documentPath + paper.path, image: taegetImage!.resize(size: CGSize(width: width, height: height))!)
             if realm.objects(Paper.self).filter("examId like '" + examId + "'").filter("name like '" + paper.name + "'").count == 0 {
                 try! realm.write() {
                     realm.add(paper)
